@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!-- THE HEAD TAG PARTIAL -->
+  <%- include("partials/head") %>
+  <body>
+    <!-- THE HEADER TAG PARTIAL -->
+    <%- include("partials/header") %>
+    <main>
+      <!-- *********DISPLAY OUR IMAGES********* -->
+      <h1 class="title">Images Lover</h1>
+      <a href="/auth/logout"><button class="button">Logout</button></a>
+      <% for (image of images) { %>
+      <h2 class="subtitle is-3"><img src="<%= image.url %>"/></h2>
+      <% } %>
+      <!-- **********NEW IMAGES FORM**************** -->
+      <form action="/images" method="post">
+        <input type="url" placeholder="new image" name="url" />
+        <input type="submit" value="add image" />
+      </form>
+    </main>
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("partials/footer") %>
+  </body>
+</html>
