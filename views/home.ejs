@@ -7,10 +7,15 @@
     <body>
         <!-- THE HEADER TAG PARTIAL -->
         <%- include("partials/header") %>
-        <main>
+        <div class="field">
+            <div class="control">
+            <a href="/auth/signup"><button class="button is-link">Signup</button></a>
+            </div>
 
-
-        </main>
+            <div class="control">
+            <a href="/auth/login"><button class="button is-link is-light">Login</button></a>
+            </div>
+        </div>
         <!-- THE HEAD TAG PARTIAL -->
         <%- include("partials/footer") %>
     </body>

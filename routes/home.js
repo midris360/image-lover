@@ -46,7 +46,7 @@ router.get("/", (req, res) => {
 // // AUTH RELATED ROUTES
 
 // // SIGNUP ROUTE
-router.get("/auth/signup", (req, res) => {
+router.get("/signup", (req, res) => {
     res.render("auth/signup")
 } )
 
@@ -102,8 +102,9 @@ router.post("/auth/login", (req, res) => {
 
 //logout
 router.get("/auth/logout", (req, res) => {
-    res.send("logout")
-})
+    req.session.user = null
+    res.redirect("/")
+});
 
 
 router.get("/images", isAuthorized, async (req, res) => {
@@ -114,14 +115,14 @@ router.get("/images", isAuthorized, async (req, res) => {
 })
 
 
-// //goals create route when form submitted
+// //images create route when form submitted
 router.post("/images", isAuthorized, async (req, res) => {
     // fetch up to date user
     const user = await User.findOne({username: req.user.username})
-    // push the goal into the user
+    // push the image into the user
     user.images.push(req.body)
     await user.save()
-    // redirect back to goals
+    // redirect back to images
     res.redirect("/images")
 })
 

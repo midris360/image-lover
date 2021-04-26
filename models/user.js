@@ -3,7 +3,7 @@ const {Schema, model} = require("../db/connection")
 
 // The Image Schema
 const Image = new Schema({
-    URL: String
+    url: String
 });
 
 // The User Schema
